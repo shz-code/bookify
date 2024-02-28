@@ -3,7 +3,6 @@ import styles from "../styles/styles";
 
 const BookCard = ({ book, navigation }) => {
   const { amount, category, created, name } = book.item;
-  console.log(name);
   return (
     <Pressable
       style={styles.bookContainer}

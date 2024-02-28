@@ -7,13 +7,16 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { useSelector } from "react-redux";
 import styles from "../styles/styles";
 
-const Details = () => {
+const Details = ({ navigation }) => {
   const [reviews, setReviews] = useState([
     { id: 1, author: "John Doe", review: "This book is amazing!" },
     { id: 2, author: "Jane Smith", review: "Highly recommended." },
   ]);
+
+  const { userId } = useSelector((state) => state.user);
 
   const renderReviews = () => {
     return reviews.map((review) => (
@@ -55,22 +58,30 @@ const Details = () => {
         <Text style={styles.sectionTitle}>Reviews</Text>
         {renderReviews()}
         {/* Add New Comment */}
-        <Text style={styles.sectionTitle}>Add New Comment</Text>
-        <Text
-          style={{ ...styles.sectionTitle, textDecorationLine: "underline" }}
-        >
-          Login to add new comment
-        </Text>
-        <TextInput style={styles.input} />
-        <View>
-          <Pressable
-            style={styles.button}
-            onPress={handleAddReview}
-            android_ripple={{ color: "#535C91" }}
-          >
-            <Text style={styles.buttonText}>Add a Review</Text>
+        {userId ? (
+          <View>
+            <Text style={styles.sectionTitle}>Add New Comment</Text>
+            <TextInput style={styles.input} />
+            <Pressable
+              style={styles.button}
+              onPress={handleAddReview}
+              android_ripple={{ color: "#535C91" }}
+            >
+              <Text style={styles.buttonText}>Add a Review</Text>
+            </Pressable>
+          </View>
+        ) : (
+          <Pressable onPress={() => navigation.navigate("Login")}>
+            <Text
+              style={{
+                ...styles.sectionTitle,
+                textDecorationLine: "underline",
+              }}
+            >
+              Login to add new comment
+            </Text>
           </Pressable>
-        </View>
+        )}
       </View>
     </ScrollView>
   );

@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -5,6 +6,7 @@ import Details from "./Screens/Details";
 import Home from "./Screens/Home";
 import Login from "./Screens/Login";
 import Register from "./Screens/Register";
+import { userLoggedIn, userLoggedOut } from "./features/auth/authSlice";
 import { primaryColor } from "./styles/styles";
 
 const Stack = createNativeStackNavigator();
