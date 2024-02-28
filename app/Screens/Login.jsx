@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import Icon from "../components/ui/Icon";
 import { setLocalStorage, userLoggedIn } from "../features/auth/authSlice";
 import { signIn } from "../services/auth";
-import styles from "../styles/styles";
+import styles, { primaryColor } from "../styles/styles";
 
 const Login = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -35,9 +35,9 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.loginContainer}>
-      <Icon name="wallet" color="#287EFC" size={32} />
+      <Icon name="book" color={primaryColor} size={32} />
       <Text style={{ ...styles.brandText, color: "#000", marginVertical: 10 }}>
-        Taka - The Wallet
+        Bookify
       </Text>
       <Text>User Login</Text>
       {authFailedMsg && (
@@ -54,7 +54,7 @@ const Login = ({ navigation }) => {
           <Text style={{ color: "#fff" }}>{authFailedMsg}</Text>
         </View>
       )}
-      <View style={{ width: "100%", gap: 10, paddingVertical: 10 }}>
+      <View style={{ width: "100%", paddingTop: 10 }}>
         <TextInput
           style={styles.input}
           placeholder="Email"
@@ -78,15 +78,13 @@ const Login = ({ navigation }) => {
             backgroundColor: "#B1BDCF",
           }}
         >
-          <Text style={{ fontSize: 20, fontWeight: "bold", color: "#000" }}>
+          <Text style={{ ...styles.buttonText, color: "#000" }}>
             Login in...
           </Text>
         </View>
       ) : (
         <Pressable style={styles.button} onPress={handleLogin}>
-          <Text style={{ fontSize: 20, fontWeight: "bold", color: "#fff" }}>
-            Login
-          </Text>
+          <Text style={styles.buttonText}>Login</Text>
         </Pressable>
       )}
 

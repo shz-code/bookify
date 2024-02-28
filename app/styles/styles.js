@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 
-const primaryColor = "#1B1A55";
-const secondaryColor = "#F0F3FF";
-const ternaryColor = "#535C91";
+export const primaryColor = "#1B1A55";
+export const secondaryColor = "#F0F3FF";
+export const ternaryColor = "#535C91";
 
 const styles = StyleSheet.create({
   headingText: {
@@ -32,6 +32,10 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+  },
+  brandText: {
+    fontSize: 24,
+    fontWeight: "bold",
   },
   image: { width: "100%", height: 200 },
   iconContainer: {
@@ -66,7 +70,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     color: "#000",
-    borderRadius: 10,
+    borderRadius: 5,
     width: "100%",
     marginBottom: 10,
   },
@@ -84,7 +88,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 5,
   },
   buttonText: {
     color: "#fff",

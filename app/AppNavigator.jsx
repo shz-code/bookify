@@ -1,12 +1,23 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Details from "./Screens/Details";
 import Home from "./Screens/Home";
+import Login from "./Screens/Login";
+import Register from "./Screens/Register";
+import { primaryColor } from "./styles/styles";
 
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      initialRouteName="Login"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: `${primaryColor}`,
+        },
+        headerTintColor: "#fff",
+      }}
+    >
       <Stack.Screen
         name="Home"
         component={Home}
@@ -15,14 +26,12 @@ const AppNavigator = () => {
       <Stack.Screen
         options={({ route }) => ({
           title: `${route.params.book.name} Details`,
-          headerStyle: {
-            backgroundColor: "#1B1A55",
-          },
-          headerTintColor: "#fff",
         })}
         name="Details"
         component={Details}
       />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   );
 };
