@@ -23,6 +23,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     opacity: 0.7,
   },
+  dashboardMenuIcon: {
+    position: "absolute",
+    top: 60,
+    right: 0,
+    zIndex: 1,
+    marginRight: 20,
+  },
   brand: {
     position: "absolute",
     top: 0,
@@ -32,20 +39,24 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 20,
   },
   brandText: {
     fontSize: 24,
     fontWeight: "bold",
   },
-  image: { width: "100%", height: 200 },
+  image: { width: "100%", height: 250 },
   iconContainer: {
     alignItems: "center",
     gap: 5,
   },
   iconBox: {
-    padding: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 8,
     backgroundColor: secondaryColor,
-    borderRadius: 50,
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   bookCategory: {

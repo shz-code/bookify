@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import BookCard from "../components/BookCard";
+import Icon from "../components/ui/Icon";
+import { userLoggedOut } from "../features/auth/authSlice";
 import styles from "../styles/styles";
 
 const categories = ["Bank", "MFS", "Cash"];
 
 const Home = ({ navigation }) => {
+  const dispatch = useDispatch();
+  const { email } = useSelector((state) => state.user);
   const [category, setCategory] = useState("");
   return (
     <View>
@@ -16,10 +21,33 @@ const Home = ({ navigation }) => {
           }}
           style={styles.image}
         />
+        <View style={styles.dashboardMenuIcon}>
+          <View style={styles.iconBox}>
+            {email ? (
+              <Icon
+                name="exit-outline"
+                action={() => dispatch(userLoggedOut())}
+                clickAble
+                size={30}
+              />
+            ) : (
+              <Icon
+                name="enter-outline"
+                action={() => navigation.navigate("Login")}
+                clickAble
+                size={30}
+              />
+            )}
+          </View>
+        </View>
         <View style={styles.heroBg}></View>
         <View style={styles.brand}>
           <Text style={styles.headingText}>Bookify</Text>
-          <Text style={{ color: "#fff", fontSize: 15 }}>Welcome: Balance</Text>
+          {email && (
+            <Text style={{ color: "#fff", fontSize: 15 }}>
+              Welcome: <Text style={{ fontWeight: 500 }}>{email}</Text>
+            </Text>
+          )}
         </View>
       </View>
       {/* Body */}
