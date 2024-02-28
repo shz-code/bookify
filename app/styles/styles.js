@@ -126,8 +126,8 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   bookCardImage: {
-    width: 200,
-    height: 150,
+    width: 190,
+    height: 170,
     borderRadius: 8,
   },
   detailsContainer: {
@@ -138,15 +138,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 5,
-  },
-  numReviews: {
-    fontSize: 14,
-    color: ternaryColor,
-    marginBottom: 5,
+    textAlign: "right",
+    paddingLeft: 5,
   },
   description: {
     fontSize: 16,
     marginBottom: 10,
+    textAlign: "right",
+    paddingLeft: 5,
   },
   readMoreButton: {
     position: "absolute",

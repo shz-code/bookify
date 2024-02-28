@@ -1,0 +1,252 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "name": "The Great Gatsby",
+      "category": "Classic",
+      "author": "F. Scott Fitzgerald",
+      "description": "A novel set in the Roaring Twenties, portraying the extravagant and elusive Jay Gatsby.",
+      "timestamp": 1646052000
+    },
+    {
+      "id": 2,
+      "name": "To Kill a Mockingbird",
+      "category": "Fiction",
+      "author": "Harper Lee",
+      "description": "A story of racial injustice and the loss of innocence in the Deep South of the 1930s.",
+      "timestamp": 1646018400
+    },
+    {
+      "id": 3,
+      "name": "1984",
+      "category": "Science Fiction",
+      "author": "George Orwell",
+      "description": "A dystopian novel depicting a totalitarian society where critical thinking is suppressed.",
+      "timestamp": 1645968000
+    },
+    {
+      "id": 4,
+      "name": "Pride and Prejudice",
+      "category": "Classic",
+      "author": "Jane Austen",
+      "description": "A witty and romantic novel featuring the independent-minded Elizabeth Bennet.",
+      "timestamp": 1645927200
+    },
+    {
+      "id": 5,
+      "name": "The Catcher in the Rye",
+      "category": "Fiction",
+      "author": "J.D. Salinger",
+      "description": "A coming-of-age story that explores themes of teenage angst and rebellion.",
+      "timestamp": 1645886400
+    },
+    {
+      "id": 6,
+      "name": "Harry Potter and the Sorcerer's Stone",
+      "category": "Fantasy",
+      "author": "J.K. Rowling",
+      "description": "The first book in the popular Harry Potter series, introducing the magical world of Hogwarts.",
+      "timestamp": 1645845600
+    },
+    {
+      "id": 7,
+      "name": "The Lord of the Rings",
+      "category": "Fantasy",
+      "author": "J.R.R. Tolkien",
+      "description": "An epic fantasy trilogy following the journey of Frodo Baggins to destroy the One Ring.",
+      "timestamp": 1645804800
+    },
+    {
+      "id": 8,
+      "name": "The Hobbit",
+      "category": "Fantasy",
+      "author": "J.R.R. Tolkien",
+      "description": "A prelude to The Lord of the Rings, chronicling Bilbo Baggins' adventures with dwarves.",
+      "timestamp": 1645764000
+    },
+    {
+      "id": 9,
+      "name": "The Hunger Games",
+      "category": "Young Adult",
+      "author": "Suzanne Collins",
+      "description": "A dystopian trilogy where teenagers are forced to participate in a televised fight to the death.",
+      "timestamp": 1645723200
+    },
+    {
+      "id": 10,
+      "name": "The Da Vinci Code",
+      "category": "Mystery",
+      "author": "Dan Brown",
+      "description": "A thrilling mystery that combines art, religion, and secret societies in a quest for hidden truths.",
+      "timestamp": 1645682400
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Classic"
+    },
+    {
+      "id": 2,
+      "name": "Fiction"
+    },
+    {
+      "id": 3,
+      "name": "Science Fiction"
+    },
+    {
+      "id": 4,
+      "name": "Fantasy"
+    },
+    {
+      "id": 5,
+      "name": "Young Adult"
+    },
+    {
+      "id": 6,
+      "name": "Mystery"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "review": "This book was a masterpiece! I couldn't put it down.",
+      "userName": "John",
+      "bookId": 6,
+      "timestamp": 1646052800
+    },
+    {
+      "id": 2,
+      "review": "An important and thought-provoking novel.",
+      "userName": "Emily",
+      "bookId": 3,
+      "timestamp": 1646025600
+    },
+    {
+      "id": 3,
+      "review": "A gripping dystopian tale that kept me hooked until the end.",
+      "userName": "Michael",
+      "bookId": 8,
+      "timestamp": 1645998400
+    },
+    {
+      "id": 4,
+      "review": "Jane Austen's wit and charm shine through in this classic.",
+      "userName": "Sophia",
+      "bookId": 1,
+      "timestamp": 1645971200
+    },
+    {
+      "id": 5,
+      "review": "A coming-of-age story that resonated with me deeply.",
+      "userName": "Oliver",
+      "bookId": 4,
+      "timestamp": 1645944000
+    },
+    {
+      "id": 6,
+      "review": "A thrilling and suspenseful mystery novel.",
+      "userName": "Ava",
+      "bookId": 2,
+      "timestamp": 1645916800
+    },
+    {
+      "id": 7,
+      "review": "The characters in this book were so well-developed!",
+      "userName": "Liam",
+      "bookId": 9,
+      "timestamp": 1645889600
+    },
+    {
+      "id": 8,
+      "review": "I couldn't stop reading until I finished the last page.",
+      "userName": "Isabella",
+      "bookId": 7,
+      "timestamp": 1645862400
+    },
+    {
+      "id": 9,
+      "review": "An emotional rollercoaster that left me in awe.",
+      "userName": "Mason",
+      "bookId": 5,
+      "timestamp": 1645835200
+    },
+    {
+      "id": 10,
+      "review": "Highly recommended! A must-read for all fantasy lovers.",
+      "userName": "Mia",
+      "bookId": 10,
+      "timestamp": 1645808000
+    },
+    {
+      "id": 11,
+      "review": "The plot twists in this book were mind-blowing.",
+      "userName": "Lucas",
+      "bookId": 2,
+      "timestamp": 1645780800
+    },
+    {
+      "id": 12,
+      "review": "A beautifully written and poignant story.",
+      "userName": "Charlotte",
+      "bookId": 1,
+      "timestamp": 1645753600
+    },
+    {
+      "id": 13,
+      "review": "I couldn't get enough of the rich world-building in this book.",
+      "userName": "William",
+      "bookId": 3,
+      "timestamp": 1645726400
+    },
+    {
+      "id": 14,
+      "review": "The suspense in this thriller novel kept me on the edge of my seat.",
+      "userName": "Harper",
+      "bookId": 6,
+      "timestamp": 1645699200
+    },
+    {
+      "id": 15,
+      "review": "A heartwarming and inspiring tale that touched my soul.",
+      "userName": "Benjamin",
+      "bookId": 10,
+      "timestamp": 1645672000
+    },
+    {
+      "id": 16,
+      "review": "I couldn't stop laughing while reading this hilarious book.",
+      "userName": "Amelia",
+      "bookId": 4,
+      "timestamp": 1645644800
+    },
+    {
+      "id": 17,
+      "review": "A powerful and thought-provoking memoir.",
+      "userName": "Henry",
+      "bookId": 8,
+      "timestamp": 1645617600
+    },
+    {
+      "id": 18,
+      "review": "The lyrical prose in this book was simply breathtaking.",
+      "userName": "Elizabeth",
+      "bookId": 7,
+      "timestamp": 1645590400
+    },
+    {
+      "id": 19,
+      "review": "I couldn't predict the ending of this captivating book.",
+      "userName": "Alexander",
+      "bookId": 3,
+      "timestamp": 1645563200
+    },
+    {
+      "id": 20,
+      "review": "A thrilling and suspenseful mystery novel.",
+      "userName": "Ella",
+      "bookId": 5,
+      "timestamp": 1645536000
+    }
+  ]
+}

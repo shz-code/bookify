@@ -2,7 +2,7 @@ import { Image, Pressable, Text, View } from "react-native";
 import styles from "../styles/styles";
 
 const BookCard = ({ book, navigation }) => {
-  const { amount, category, created, name } = book.item;
+  const { author, category, description, name, timestamp } = book.item;
   return (
     <Pressable
       style={styles.bookContainer}
@@ -16,9 +16,9 @@ const BookCard = ({ book, navigation }) => {
         style={styles.bookCardImage}
       />
       <View style={styles.detailsContainer}>
-        <Text style={styles.bookName}>lorem15</Text>
-        <Text style={styles.numReviews}>123 Reviews</Text>
-        <Text style={styles.description}>123</Text>
+        <Text style={styles.bookName}>{name}</Text>
+        <Text style={styles.authorName}>{author}</Text>
+        <Text style={styles.description}>{description.slice(0, 30)}...</Text>
         <Pressable
           style={styles.readMoreButton}
           onPress={() => navigation.navigate("Details", { book: book.item })}

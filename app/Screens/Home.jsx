@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import BookCard from "../components/BookCard";
+import Books from "../components/Books";
 import Icon from "../components/ui/Icon";
 import { userLoggedOut } from "../features/auth/authSlice";
 import styles from "../styles/styles";
@@ -87,10 +87,7 @@ const Home = ({ navigation }) => {
           ))}
         </View>
         {/* Book List */}
-        {/* <FlatList /> */}
-        <View>
-          <BookCard book={{ item: { name: "SM" } }} navigation={navigation} />
-        </View>
+        <Books navigation={navigation} />
       </View>
     </View>
   );
