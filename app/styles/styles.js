@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     position: "relative",
     borderRadius: 8,
     padding: 10,
-    marginVertical: 10,
+    marginBottom: 10,
     elevation: 2,
   },
   bookCardImage: {

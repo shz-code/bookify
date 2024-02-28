@@ -1,17 +1,16 @@
 import { useState } from "react";
-import { Image, Pressable, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import Books from "../components/Books";
+import { Categories } from "../components/Categories";
 import Icon from "../components/ui/Icon";
 import { userLoggedOut } from "../features/auth/authSlice";
 import styles from "../styles/styles";
 
-const categories = ["Bank", "MFS", "Cash"];
-
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
   const { email } = useSelector((state) => state.user);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("All");
   return (
     <View>
       <View style={{ position: "relative" }}>
@@ -53,39 +52,7 @@ const Home = ({ navigation }) => {
       {/* Body */}
       <View style={styles.container}>
         {/* Book Categories */}
-        <View style={{ flexDirection: "row", gap: 10, marginTop: 10 }}>
-          <Pressable onPress={() => setCategory("All")}>
-            <Text
-              style={
-                category != "All"
-                  ? { ...styles.bookCategory }
-                  : {
-                      ...styles.bookCategory,
-                      ...styles.bookCategorySelected,
-                    }
-              }
-            >
-              All
-            </Text>
-          </Pressable>
-          {/* Others */}
-          {categories.map((item) => (
-            <Pressable key={item} onPress={() => setCategory(item)}>
-              <Text
-                style={
-                  category != item
-                    ? { ...styles.bookCategory }
-                    : {
-                        ...styles.bookCategory,
-                        ...styles.bookCategorySelected,
-                      }
-                }
-              >
-                {item}
-              </Text>
-            </Pressable>
-          ))}
-        </View>
+        <Categories category={category} setCategory={setCategory} />
         {/* Book List */}
         <Books navigation={navigation} />
       </View>

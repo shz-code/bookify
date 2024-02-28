@@ -7,8 +7,6 @@ const Books = ({ navigation }) => {
   const { userId } = useSelector((state) => state.user);
   const { data, isLoading, isError, error } = useGetBooksQuery();
 
-  console.log(data);
-
   let content = null;
   let errorText = null;
   if (isLoading) content = <Text>Loading...</Text>;
