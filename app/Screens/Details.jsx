@@ -10,7 +10,10 @@ import {
 import { useSelector } from "react-redux";
 import styles from "../styles/styles";
 
-const Details = ({ navigation }) => {
+const Details = ({ navigation, route }) => {
+  const { author, category, description, name, timestamp, url } =
+    route.params.book;
+
   const [reviews, setReviews] = useState([
     { id: 1, author: "John Doe", review: "This book is amazing!" },
     { id: 2, author: "Jane Smith", review: "Highly recommended." },
@@ -42,17 +45,13 @@ const Details = ({ navigation }) => {
       <View style={styles.detailsPageContainer_details}>
         <Image
           source={{
-            uri: "https://images.unsplash.com/photo-1515405295579-ba7b45403062?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            uri: url,
           }}
           style={styles.detailsImage}
         />
-        <Text style={styles.bookName}>Book Name</Text>
-        <Text style={styles.authorName}>Author Name</Text>
-        <Text style={styles.detailsPage_description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          ullamcorper nunc non euismod lobortis. Nullam nec sapien imperdiet,
-          ultrices lorem vitae, ullamcorper massa.
-        </Text>
+        <Text style={styles.bookName}>{name}</Text>
+        <Text style={styles.authorName}>{author}</Text>
+        <Text style={styles.detailsPage_description}>{description}</Text>
       </View>
       <View style={styles.reviewsContainer}>
         <Text style={styles.sectionTitle}>Reviews</Text>
