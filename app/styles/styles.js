@@ -191,6 +191,9 @@ const styles = StyleSheet.create({
   reviewsContainer: {
     marginBottom: 20,
   },
+  reviewAuthor: {
+    fontWeight: "bold",
+  },
   sectionTitle: {
     fontSize: 20,
     fontWeight: "bold",

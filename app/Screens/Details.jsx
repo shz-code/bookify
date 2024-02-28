@@ -8,36 +8,49 @@ import {
   View,
 } from "react-native";
 import { useSelector } from "react-redux";
+import Review from "../components/Review";
+import {
+  useAddReviewMutation,
+  useGetReviewsQuery,
+} from "../features/reviews/reviewsApi";
 import styles from "../styles/styles";
 
 const Details = ({ navigation, route }) => {
-  const { author, category, description, name, timestamp, url } =
+  const { author, category, description, name, timestamp, url, id } =
     route.params.book;
 
-  const [reviews, setReviews] = useState([
-    { id: 1, author: "John Doe", review: "This book is amazing!" },
-    { id: 2, author: "Jane Smith", review: "Highly recommended." },
-  ]);
+  const { userId, email } = useSelector((state) => state.user);
 
-  const { userId } = useSelector((state) => state.user);
+  const { data, isLoading, isError, error } = useGetReviewsQuery();
+  const [addReview, { isLoading: submitting }] = useAddReviewMutation();
 
-  const renderReviews = () => {
-    return reviews.map((review) => (
-      <View key={review.id} style={styles.reviewContainer}>
-        <Text style={styles.author}>{review.author}</Text>
-        <Text style={styles.reviewText}>{review.review}</Text>
-      </View>
-    ));
-  };
+  const [comment, setComment] = useState("");
 
-  const handleAddReview = () => {
-    // Add your logic to handle adding a new review
-    const newReview = {
-      id: reviews.length + 1,
-      author: "New Reviewer",
-      review: "This book is great!",
-    };
-    setReviews([...reviews, newReview]);
+  let content = null;
+  let errorText = null;
+  if (isLoading) content = <Text>Loading...</Text>;
+  else if (!isLoading && isError) errorText = <Text>{error.data}</Text>;
+  else if (!isLoading && !isError && !data)
+    errorText = <Text>Nothing Found</Text>;
+  else if (!isLoading && !isError && data)
+    content = data.map((item) => {
+      if (item.bookId === id) return <Review key={item.id} review={item} />;
+    });
+
+  const handleAddReview = async () => {
+    if (comment) {
+      const body = {
+        bookId: id,
+        id: data[data.length - 1].id + 1,
+        timestamp: new Date().getTime(),
+        userName: email.split("@")[0],
+        review: comment,
+      };
+      let newArr = [];
+      if (data) newArr = data.concat(body);
+      else newArr = newArr.concat(body);
+      await addReview(newArr);
+    }
   };
 
   return (
@@ -55,19 +68,35 @@ const Details = ({ navigation, route }) => {
       </View>
       <View style={styles.reviewsContainer}>
         <Text style={styles.sectionTitle}>Reviews</Text>
-        {renderReviews()}
+        {content}
         {/* Add New Comment */}
         {userId ? (
           <View>
             <Text style={styles.sectionTitle}>Add New Comment</Text>
-            <TextInput style={styles.input} />
-            <Pressable
-              style={styles.button}
-              onPress={handleAddReview}
-              android_ripple={{ color: "#535C91" }}
-            >
-              <Text style={styles.buttonText}>Add a Review</Text>
-            </Pressable>
+            <TextInput
+              placeholder="Write your review"
+              style={styles.input}
+              value={comment}
+              onChangeText={setComment}
+            />
+            {submitting ? (
+              <View
+                style={{
+                  ...styles.button,
+                  backgroundColor: "#B1BDCF",
+                }}
+              >
+                <Text style={styles.buttonText}>Working...</Text>
+              </View>
+            ) : (
+              <Pressable
+                style={styles.button}
+                onPress={handleAddReview}
+                android_ripple={{ color: "#535C91" }}
+              >
+                <Text style={styles.buttonText}>Add a Review</Text>
+              </Pressable>
+            )}
           </View>
         ) : (
           <Pressable onPress={() => navigation.navigate("Login")}>
