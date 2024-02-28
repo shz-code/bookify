@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useGetBooksQuery } from "../features/books/booksApi";
 import BookCard from "./BookCard";
 
-const Books = ({ navigation }) => {
+const Books = ({ navigation, category }) => {
   const { userId } = useSelector((state) => state.user);
   const { data, isLoading, isError, error } = useGetBooksQuery();
 
@@ -17,7 +17,12 @@ const Books = ({ navigation }) => {
     content = (
       <FlatList
         data={data}
-        renderItem={(item) => <BookCard book={item} navigation={navigation} />}
+        renderItem={(item) => {
+          if (category === "All")
+            return <BookCard book={item} navigation={navigation} />;
+          else if (item.item.category === category)
+            return <BookCard book={item} navigation={navigation} />;
+        }}
         key={(item) => item}
         style={{ height: 580 }}
       />

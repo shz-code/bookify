@@ -54,7 +54,7 @@ const Home = ({ navigation }) => {
         {/* Book Categories */}
         <Categories category={category} setCategory={setCategory} />
         {/* Book List */}
-        <Books navigation={navigation} />
+        <Books navigation={navigation} category={category} />
       </View>
     </View>
   );
